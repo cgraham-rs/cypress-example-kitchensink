@@ -47,7 +47,8 @@
     "local:run:record": "start-test 8080 cy:run:record",
     "ci:set-port": "node ./scripts/set-port",
     "semantic-release": "semantic-release",
-    "prepare": "node .husky/install.mjs"
+    "prepare": "node .husky/install.mjs",
+    "local:run:negative:grep": "start-test 8080 \"npm run cy:run -- --env grep='-todo'\""
   },
   "repository": {
     "type": "git",
