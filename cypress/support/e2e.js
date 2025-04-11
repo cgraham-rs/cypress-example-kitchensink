@@ -14,9 +14,45 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
 
 // load and register the grep feature using "require" function
 // https://github.com/cypress-io/cypress/tree/develop/npm/grep
-const registerCypressGrep = require('@cypress/grep')
-registerCypressGrep()
+const registerCypressGrep = require("@cypress/grep");
+registerCypressGrep();
+
+/* eslint mocha/no-top-level-hooks: "off" -- Top level hooks apply to all tests cases. */
+
+beforeEach(function () {
+  // DEBUG
+  cy.log(
+    `testConfig: ${JSON.stringify(this.currentTest._testConfig)}`,
+    this.currentTest._testConfig,
+  );
+
+  if (this.currentTest._testConfig.unverifiedTestConfig.reset == false) {
+    cy.log("Skipping cy.reset() due to custom test config");
+  } else {
+    // Call some custom command to perform environment reset
+  }
+
+  if (this.currentTest._testConfig.unverifiedTestConfig.seed == false) {
+    cy.log("Skipping cy.seedData() due to custom test config");
+  } else {
+    // Call some custom command to perform environment seeding
+  }
+});
+
+afterEach(function () {
+  // pass
+});
+
+Cypress.on("uncaught:exception", () => {
+  // pass
+});
+
+Cypress.on("window:before:load", (win) => {
+  cy.stub(win.console, "error").callsFake(() => {
+    // pass
+  });
+});
