@@ -48,7 +48,8 @@
     "ci:set-port": "node ./scripts/set-port",
     "semantic-release": "semantic-release",
     "prepare": "node .husky/install.mjs",
-    "local:run:negative:grep": "start-test 8080 \"npm run cy:run -- --env grep='-todo'\""
+    "local:run:positive:grep": "start-test 8080 \"npm run cy:run -- --env grep='todo' --spec 'cypress/e2e/1-getting-started/todo_with_extra_test_config.cy.js'\"",
+    "local:run:negative:grep": "start-test 8080 \"npm run cy:run -- --env grep='-todo' --spec 'cypress/e2e/1-getting-started/todo_with_extra_test_config.cy.js'\""
   },
   "repository": {
     "type": "git",
