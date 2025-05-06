@@ -18,7 +18,7 @@ import "./commands";
 
 // load and register the grep feature using "require" function
 // https://github.com/cypress-io/cypress/tree/develop/npm/grep
-const registerCypressGrep = require("@cypress/grep");
+const registerCypressGrep = require("@bahmutov/cy-grep");
 registerCypressGrep();
 
 /* eslint mocha/no-top-level-hooks: "off" -- Top level hooks apply to all tests cases. */
